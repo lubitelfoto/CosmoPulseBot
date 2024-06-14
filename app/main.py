@@ -1,17 +1,13 @@
 import asyncio
 import os
-
 import requests
 import json
 from app.model_manager import ModelManager
 import matplotlib.pyplot as plt
-
 import pandas as pd
 from send_bot import send_text_to_telegram, send_picture_to_telegram
 import numpy as np
-
 from scipy import fftpack
-
 
 
 mod_manager = ModelManager()
@@ -57,6 +53,7 @@ def load_data():
     X = fourier_df.to_numpy()
     return X, merged_df['time_tag']
 
+
 async def predict_event():
     picture_path = "images/forecast.png"
 
@@ -94,9 +91,6 @@ async def predict_event():
     except Exception as e:
         return f"An error occurred: {e}"
 
-
-async def send_s(chat_id):
-    pass
 
 async def main():
     print("App started")
